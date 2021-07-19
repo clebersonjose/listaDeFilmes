@@ -1,2 +1,5 @@
-FROM php:7.4-apache
-COPY "./server/000-default.conf" "/etc/apache2/sites-enabled"
+FROM php:fpm
+
+RUN docker-php-ext-install pdo pdo_mysql
+
+RUN pecl install xdebug && docker-php-ext-enable xdebug
