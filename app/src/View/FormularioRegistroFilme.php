@@ -21,8 +21,8 @@
 
     <input type="hidden" name="userId" value="<?= $_SESSION['logado'] ?>" required>
 
-    <button type="submit" class="btn btn-success me-3">Cadastrar filme</button>
-    <a href="/lista-filmes" class="btn btn-outline-dark">Voltar para a lista de filmes</a>
+    <button type="submit" class="btn btn-success me-3 mb-4">Cadastrar filme</button>
+    <a href="/lista-filmes" class="btn btn-outline-dark mb-4">Voltar para a lista de filmes</a>
   </form>
 </div>
 

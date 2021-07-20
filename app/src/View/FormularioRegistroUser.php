@@ -14,8 +14,8 @@
       <input type="password" class="form-control" id="userPassword" placeholder="Sua senha" name="senha" required>
     </div>
 
-    <button type="submit" class="btn btn-success me-3">Finalizar registro</button>
-    <a href="/login" class="btn btn-outline-dark">Já tenho conta</a>
+    <button type="submit" class="btn btn-success me-3 mb-4">Finalizar registro</button>
+    <a href="/login" class="btn btn-outline-dark mb-4">Já tenho conta</a>
   </form>
 </div>
 

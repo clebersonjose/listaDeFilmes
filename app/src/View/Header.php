@@ -26,4 +26,4 @@
   </header>
 
   <main class="container">
-    <h1 class="text-center"><?= $titulo; ?></h1>
+    <h1 class="text-center mb-4"><?= $titulo; ?></h1>

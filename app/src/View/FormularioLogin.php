@@ -14,8 +14,8 @@
       <input type="password" class="form-control" id="userPassword" placeholder="Sua senha" name="senha" required>
     </div>
 
-    <button type="submit" class="btn btn-success me-3">Logar</button>
-    <a href="/novo-user" class="btn btn-outline-dark">Não tenho conta</a>
+    <button type="submit" class="btn btn-success me-3 mb-4">Logar</button>
+    <a href="/novo-user" class="btn btn-outline-dark mb-4">Não tenho conta</a>
   </form>
 </div>
 

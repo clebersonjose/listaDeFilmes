@@ -7,14 +7,16 @@ use Cleberson\ListaDeFilmes\Controller\RealizarLogin;
 use Cleberson\ListaDeFilmes\Controller\RealizarLogout;
 use Cleberson\ListaDeFilmes\Controller\FormularioRegistroFilme;
 use Cleberson\ListaDeFilmes\Controller\RegistrarFilme;
+use Cleberson\ListaDeFilmes\Controller\ListarFilmes;
 
 return [
-  '/' => FormularioLogin::class,
+  '/' => ListarFilmes::class,
   '/novo-user' => FormularioRegistroUser::class,
   '/registrar-user' => RegistrarUser::class,
   '/login' => FormularioLogin::class,
   '/realizar-login' => RealizarLogin::class,
   '/logout' => RealizarLogout::class,
   '/novo-filme' => FormularioRegistroFilme::class,
-  '/registrar-filme' => RegistrarFilme::class
+  '/registrar-filme' => RegistrarFilme::class,
+  '/lista-filmes' => ListarFilmes::class
 ];

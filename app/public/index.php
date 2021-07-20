@@ -11,6 +11,8 @@ require __DIR__ . '/../vendor/autoload.php';
  * //Todo: Criar login
  * //TODO: Cadastrar filme
  * TODO: Listas filmes
+ * TODO: Apagar filme
+ * TODO: Ediar filme
  */
 
 $requestData = $_POST;
