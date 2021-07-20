@@ -15,9 +15,13 @@ class RealizarLogin implements RequestHandler
     $senha = filter_var($request['senha'], FILTER_SANITIZE_STRING);
 
     $userArray = $this->encontrarUser($email);
-    $user = $userArray[0];
+    if (!$userArray) {
+      header('Location: /login');
+      exit();
+    }
 
-    if (!$userArray || !$user->validaSenha($senha)) {
+    $user = $userArray[0];
+    if (!$user->validaSenha($senha)) {
       header('Location: /login');
       exit();
     }
