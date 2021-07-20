@@ -2,7 +2,7 @@
 
 <div class="d-flex">
 
-  <form class="p-2 flex-fill col" action="/registrar-user" method="post">
+  <form class="p-2 flex-fill col" action="/realizar-login" method="post">
 
     <div class="form-group mb-4">
       <label for="exampleInputEmail1">E-mail</label>
@@ -14,8 +14,8 @@
       <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Sua senha" name="senha" required>
     </div>
 
-    <button type="submit" class="btn btn-success me-3">Finalizar registro</button>
-    <a href="/login" class="btn btn-outline-dark">Já tenho conta</a>
+    <button type="submit" class="btn btn-success me-3">Logar</button>
+    <a href="/novo-user" class="btn btn-outline-dark">Não tenho conta</a>
   </form>
 </div>
 

@@ -3,10 +3,14 @@
 namespace Cleberson\ListaDeFilmes\Controller;
 
 use Cleberson\ListaDeFilmes\Entity\User;
-use PDO;
+use Cleberson\ListaDeFilmes\Helper\ConectaBancoTrait;
+use Cleberson\ListaDeFilmes\Helper\EncontrarUserTrait;
 
 class RegistrarUser  implements RequestHandler
 {
+  use ConectaBancoTrait;
+  use EncontrarUserTrait;
+
   public function handle(array $request): void
   {
     $senha =  $request["senha"];
@@ -32,24 +36,16 @@ class RegistrarUser  implements RequestHandler
     return $senhaHash;
   }
 
-  private function conectaBanco()
-  {
-    $conexao = new PDO(
-      'mysql:dbname=' . getenv("DB_NAME") . ';host=' . getenv('DB_HOST'),
-      getenv("DB_USER"),
-      getenv("DB_PASSWORD")
-    );
-
-    $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $conexao->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-
-    return $conexao;
-  }
-
   private function criarUser(User $user): bool
   {
     $userEmail = $user->getEmail();
     $userSenha = $user->getSenha();
+
+    $validandoEmail = $this->encontrarUser($userEmail);
+
+    if ($validandoEmail) {
+      return false;
+    }
 
     $conexao = $this->conectaBanco();
 
