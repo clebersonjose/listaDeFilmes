@@ -9,23 +9,33 @@ require __DIR__ . '/../vendor/autoload.php';
  * Aplicação:
  * //Todo: Registrar user
  * //Todo: Criar login
- * TODO: Cadastrar filme
+ * //TODO: Cadastrar filme
  * TODO: Listas filmes
  */
 
-
 $requestData = $_POST;
-session_start();
-
 $pagina = $_SERVER['REQUEST_URI'];
 $rotas = require __DIR__ . '/../rotas.php';
-$getPagina = $rotas[$pagina];
 
-if (!$getPagina) {
+if (!isset($rotas[$pagina])) {
   http_response_code(404);
   exit();
 }
 
+session_start();
+
+if (
+  !isset($_SESSION['logado']) &&
+  $pagina !== '/novo-user' &&
+  $pagina !== '/registrar-user' &&
+  $pagina !== '/login' &&
+  $pagina !== '/realizar-login'
+) {
+  header('Location: /login');
+  exit();
+}
+
+$getPagina = $rotas[$pagina];
 $pagina = new $getPagina();
 $handle = "handle";
 $pagina->$handle($requestData);
