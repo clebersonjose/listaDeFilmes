@@ -1,0 +1,41 @@
+version: '3'
+services:
+  web:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./server/nginx.conf:/etc/nginx/conf.d/nginx.conf
+      - ./app:/app
+    links:
+      - php
+      - db
+
+  db:
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${APP_DB_PASSWORD_ROOT}
+      MYSQL_DATABASE: ${APP_DB_NAME}
+      MYSQL_USER: ${APP_DB_USER}
+      MYSQL_PASSWORD: ${APP_DB_PASSWORD}
+      MYSQL_ALLOW_EMOTY_PASSWORD: 'yes'
+
+  php:
+    build: .
+    volumes:
+      - ./app:/app
+    environment:
+      DB_HOST: db:3306
+      DB_NAME: ${APP_DB_NAME}
+      DB_USER: ${APP_DB_USER}
+      DB_PASSWORD: ${APP_DB_PASSWORD}
+    links:
+      - db
+    depends_on:
+      - db
+
+
