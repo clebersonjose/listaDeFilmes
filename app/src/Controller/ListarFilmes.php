@@ -2,13 +2,13 @@
 
 namespace Cleberson\ListaDeFilmes\Controller;
 
-use Cleberson\ListaDeFilmes\Helper\GetFilmesTrait;
 use Cleberson\ListaDeFilmes\Helper\GetViewTrait;
+use Cleberson\ListaDeFilmes\Helper\GetListaFilmesTrait;
 
 class ListarFilmes implements RequestHandler
 {
   use GetViewTrait;
-  use GetFilmesTrait;
+  use GetListaFilmesTrait;
 
   public function handle(array $request): void
   {

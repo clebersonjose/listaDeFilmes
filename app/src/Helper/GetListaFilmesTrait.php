@@ -5,7 +5,7 @@ namespace Cleberson\ListaDeFilmes\Helper;
 use Cleberson\ListaDeFilmes\Entity\Filme;
 use PDOException;
 
-trait GetFilmesTrait
+trait GetListaFilmesTrait
 {
   use ConectaBancoTrait;
 

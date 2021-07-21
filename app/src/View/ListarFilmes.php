@@ -20,7 +20,8 @@
               <a href="<?= $filme->getLink(); ?>" class="btn btn-success me-1" target="_blank" rel="noopener noreferrer">Assistir</a>
             <?php endif; ?>
 
-            <a href="/remover-filme?id=<?= $filme->getId(); ?>" class="btn btn-outline-danger">Remover</a>
+            <a href="/editar-filme?id=<?= $filme->getId(); ?>" class="btn btn-outline-dark me-1">Editar</a>
+            <a href="/remover-filme?id=<?= $filme->getId(); ?>" class="btn btn-outline-danger me-1">Remover</a>
           </div>
 
         </div>

@@ -10,8 +10,10 @@ class FormularioRegistroFilme implements RequestHandler
 
   public function handle(array $request): void
   {
-    $html = $this->getView('FormularioRegistroFilme.php', [
-      'titulo' => "Cadastrar um novo Filme"
+    $html = $this->getView('FormularioFilme.php', [
+      'titulo' => "Cadastrar um novo Filme",
+      'acao' => 'Cadastrar filme',
+      'urlAcao' => '/registrar-filme'
     ]);
 
     echo $html;

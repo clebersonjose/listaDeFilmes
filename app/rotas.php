@@ -9,6 +9,8 @@ use Cleberson\ListaDeFilmes\Controller\FormularioRegistroFilme;
 use Cleberson\ListaDeFilmes\Controller\RegistrarFilme;
 use Cleberson\ListaDeFilmes\Controller\ListarFilmes;
 use Cleberson\ListaDeFilmes\Controller\RemoverFilmes;
+use Cleberson\ListaDeFilmes\Controller\FormularioEditarFilme;
+use Cleberson\ListaDeFilmes\Controller\EditarFilme;
 
 return [
   '/' => ListarFilmes::class,
@@ -20,5 +22,7 @@ return [
   '/novo-filme' => FormularioRegistroFilme::class,
   '/registrar-filme' => RegistrarFilme::class,
   '/lista-filmes' => ListarFilmes::class,
-  '/remover-filme' => RemoverFilmes::class
+  '/remover-filme' => RemoverFilmes::class,
+  '/editar-filme' => FormularioEditarFilme::class,
+  '/update-filme' => EditarFilme::class
 ];
