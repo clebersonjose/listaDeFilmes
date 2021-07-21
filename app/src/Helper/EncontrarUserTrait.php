@@ -3,6 +3,7 @@
 namespace Cleberson\ListaDeFilmes\Helper;
 
 use Cleberson\ListaDeFilmes\Entity\User;
+use PDOException;
 
 trait EncontrarUserTrait
 {
@@ -14,9 +15,14 @@ trait EncontrarUserTrait
     $encontrarUser = "SELECT * FROM Users WHERE Email = :Email;";
     $requisicao = $conexao->prepare($encontrarUser);
     $requisicao->bindParam(':Email', $email);
-    $requisicao->execute();
 
-    $requisicaoDataList = $requisicao->fetchAll();
+    try {
+      $requisicao->execute();
+      $requisicaoDataList = $requisicao->fetchAll();
+    } catch (PDOException $error) {
+      return [];
+    }
+
     $users = [];
 
     foreach ($requisicaoDataList as  $requisicaoData) {

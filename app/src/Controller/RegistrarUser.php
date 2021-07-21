@@ -5,6 +5,7 @@ namespace Cleberson\ListaDeFilmes\Controller;
 use Cleberson\ListaDeFilmes\Entity\User;
 use Cleberson\ListaDeFilmes\Helper\ConectaBancoTrait;
 use Cleberson\ListaDeFilmes\Helper\EncontrarUserTrait;
+use PDOException;
 
 class RegistrarUser  implements RequestHandler
 {
@@ -42,7 +43,6 @@ class RegistrarUser  implements RequestHandler
     $userSenha = $user->getSenha();
 
     $validandoEmail = $this->encontrarUser($userEmail);
-
     if ($validandoEmail) {
       return false;
     }
@@ -55,6 +55,10 @@ class RegistrarUser  implements RequestHandler
     $prepatacao->bindParam(':Email', $userEmail);
     $prepatacao->bindParam(':Senha', $userSenha);
 
-    return $prepatacao->execute();
+    try {
+      return $prepatacao->execute();
+    } catch (PDOException $error) {
+      return false;
+    }
   }
 }

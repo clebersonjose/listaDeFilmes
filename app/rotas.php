@@ -8,6 +8,7 @@ use Cleberson\ListaDeFilmes\Controller\RealizarLogout;
 use Cleberson\ListaDeFilmes\Controller\FormularioRegistroFilme;
 use Cleberson\ListaDeFilmes\Controller\RegistrarFilme;
 use Cleberson\ListaDeFilmes\Controller\ListarFilmes;
+use Cleberson\ListaDeFilmes\Controller\RemoverFilmes;
 
 return [
   '/' => ListarFilmes::class,
@@ -18,5 +19,6 @@ return [
   '/logout' => RealizarLogout::class,
   '/novo-filme' => FormularioRegistroFilme::class,
   '/registrar-filme' => RegistrarFilme::class,
-  '/lista-filmes' => ListarFilmes::class
+  '/lista-filmes' => ListarFilmes::class,
+  '/remover-filme' => RemoverFilmes::class
 ];

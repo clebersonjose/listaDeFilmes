@@ -4,6 +4,7 @@ namespace Cleberson\ListaDeFilmes\Controller;
 
 use Cleberson\ListaDeFilmes\Entity\Filme;
 use Cleberson\ListaDeFilmes\Helper\ConectaBancoTrait;
+use PDOException;
 
 class RegistrarFilme implements RequestHandler
 {
@@ -44,6 +45,10 @@ class RegistrarFilme implements RequestHandler
     $prepatacao->bindParam(':Descricao', $filmeDescricao);
     $prepatacao->bindParam(':Link', $filmeLink);
 
-    return $prepatacao->execute();
+    try {
+      return $prepatacao->execute();
+    } catch (PDOException $error) {
+      return false;
+    }
   }
 }

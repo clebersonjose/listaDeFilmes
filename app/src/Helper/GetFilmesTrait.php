@@ -3,6 +3,7 @@
 namespace Cleberson\ListaDeFilmes\Helper;
 
 use Cleberson\ListaDeFilmes\Entity\Filme;
+use PDOException;
 
 trait GetFilmesTrait
 {
@@ -16,9 +17,14 @@ trait GetFilmesTrait
     $encontrarFilmes = "SELECT * FROM Filmes WHERE UserId = :UserId;";
     $requisicao = $conexao->prepare($encontrarFilmes);
     $requisicao->bindParam(':UserId', $userIdSanitize);
-    $requisicao->execute();
 
-    $requisicaoDataList = $requisicao->fetchAll();
+    try {
+      $requisicao->execute();
+      $requisicaoDataList = $requisicao->fetchAll();
+    } catch (PDOException $error) {
+      return [];
+    }
+
     $filmes = [];
 
     foreach ($requisicaoDataList as  $requisicaoData) {

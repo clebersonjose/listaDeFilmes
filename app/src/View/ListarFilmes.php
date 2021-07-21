@@ -4,19 +4,27 @@
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
     <?php foreach ($filmes as $filme) : ?>
       <div class="col mb-4">
+
         <div class="card shadow h-100">
+
           <div class="card-body">
             <h5 class="card-title"><?= $filme->getNome(); ?></h5>
 
             <?php if ($filme->getDescricao()) : ?>
               <p class="card-text"><?= $filme->getDescricao(); ?></p>
             <?php endif; ?>
-
-            <?php if ($filme->getLink()) : ?>
-              <a href="<?= $filme->getLink(); ?>" class="btn btn-success" target="_blank" rel="noopener noreferrer">Assistir filme</a>
-            <?php endif; ?>
           </div>
+
+          <div class="p-3 border-top">
+            <?php if ($filme->getLink()) : ?>
+              <a href="<?= $filme->getLink(); ?>" class="btn btn-success me-1" target="_blank" rel="noopener noreferrer">Assistir</a>
+            <?php endif; ?>
+
+            <a href="/remover-filme?id=<?= $filme->getId(); ?>" class="btn btn-outline-danger">Remover</a>
+          </div>
+
         </div>
+
       </div>
     <?php endforeach; ?>
   </div>

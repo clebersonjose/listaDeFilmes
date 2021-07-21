@@ -10,13 +10,13 @@ require __DIR__ . '/../vendor/autoload.php';
  * //Todo: Registrar user
  * //Todo: Criar login
  * //TODO: Cadastrar filme
- * TODO: Listas filmes
+ * //TODO: Listas filmes
  * TODO: Apagar filme
  * TODO: Ediar filme
  */
 
 $requestData = $_POST;
-$pagina = $_SERVER['REQUEST_URI'];
+$pagina = explode('?', $_SERVER['REQUEST_URI'])[0];
 $rotas = require __DIR__ . '/../rotas.php';
 
 if (!isset($rotas[$pagina])) {
