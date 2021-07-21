@@ -3,6 +3,7 @@
 namespace Cleberson\ListaDeFilmes\Helper;
 
 use PDO;
+use PDOException;
 
 trait ConectaBancoTrait
 {
@@ -17,6 +18,10 @@ trait ConectaBancoTrait
     $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $conexao->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
-    return $conexao;
+    try {
+      return $conexao;
+    } catch (PDOException $error) {
+      return $error;
+    }
   }
 }

@@ -12,7 +12,7 @@ require __DIR__ . '/../vendor/autoload.php';
  * //TODO: Cadastrar filme
  * //TODO: Listas filmes
  * //TODO: Apagar filme
- * TODO: Ediar filme
+ * //TODO: Ediar filme
  */
 
 $requestData = $_POST;
