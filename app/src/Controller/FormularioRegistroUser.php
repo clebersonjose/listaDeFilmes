@@ -10,8 +10,12 @@ class FormularioRegistroUser implements RequestHandler
 
   public function handle(array $request): void
   {
-    $html = $this->getView('FormularioRegistroUser.php', [
-      'titulo' => "Registro de Usuario"
+    $html = $this->getView('FormularioUser.php', [
+      'titulo' => "Registro de Usuario",
+      'acao' => 'Finalizar registro',
+      'urlAcao' => '/registrar-user',
+      'acaoDois' => 'Já tenho conta',
+      'urlAcaoDois' => '/login'
     ]);
 
     echo $html;
